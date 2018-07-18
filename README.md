@@ -14,3 +14,13 @@
 
 
 
+
+-----
+
+Тестовое задание для прессфото сделано ЕМ Семеренко (c)2018, MIT license.
+
+Static web root is `.\www\` folder.
+Django app is in `.\djapp\ folder.
+
+Django admin panel url will be `/a/admin/` by default.
+admin panel login and password is: `admin`:`admin`

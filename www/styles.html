@@ -1,0 +1,195 @@
+<!--#set var="TITLE" value="Example styles" -->
+<!--#include file="/header.html"-->
+
+<h2>Example styles from mini.css</h2>
+
+<hr/>
+
+<h3>this page is given only as example</h3>
+<p>styles from <a href="https://minicss.org/?ref=ddwu.com" target="_blank">minicss framework</a>
+<br/>
+<h1>Heading 1<small>Subheading</small></h1>
+<h2>Heading 2<small>Subheading</small></h2>
+<h3>Heading 3<small>Subheading</small></h3>
+<h4>Heading 4<small>Subheading</small></h4>
+<h5>Heading 5<small>Subheading</small></h5>
+<h6>Heading 6<small>Subheading</small></h6>
+
+<p>This is a paragraph with some <strong>bold text</strong> and some <em>italics text</em>.</p>
+<p><a href="#">This is a link.</a>
+<small>This is some small text.</small>
+<sub>Subscript</sub>
+<sup>Superscript</sup>
+<code>Inline code</code>
+  <kbd>Keyboard Input</kbd></p>
+<hr>
+<pre>This is some preformatted text.</pre>
+<blockquote cite="Quotation source">
+  This is some quoted text from another website or person.
+</blockquote>
+<ul>
+  <li>Apple</li>
+  <li>Orange</li>
+  <li>Strawberry</li>
+</ul>
+
+<ol>
+  <li>Wake up</li>
+  <li>Eat breakfast</li>
+  <li>Go to work</li>
+</ol>
+
+<form>
+  <fieldset>
+    <legend>Simple form</legend>
+    <div class="input-group fluid">
+      <label for="username">username</label>
+      <input type="email" value="" id="username" placeholder="username">
+    </div>
+    <div class="input-group fluid">
+      <label for="pwd">password</label>
+      <input type="password" value="" id="pwd" placeholder="password">
+    </div>
+  </fieldset>
+</form>
+<div class="input-group">
+  <input type="checkbox" id="check1" tabindex="0">
+  <label for="check1">Checkbox</label>
+</div>
+
+<div class="input-group">
+  <input type="radio" id="rad1" tabindex="0" name="radio-group-1">
+  <label for="rad1">Radio</label>
+</div>
+<button>Default button</button>
+<input type="button" class="primary" value="Primary button">
+<input type="reset" class="secondary" value="Secondary button">
+<input type="submit" class="tertiary" value="Tertiary button">
+<button class="inverse">Inverse button</button>
+<button class="small">Small button</button>
+<button class="large">Large button</button>
+<button disabled>Disabled button</button>
+<a href="#" class="button">Link button</a>
+<a href="#" role="button">Link button</a>
+<label class="button">Label button</label>
+<label role="button">Label button</label>
+
+<input type="file" id="file-input">
+<label for="file-input" class="button">Upload file...</label>
+
+<header>
+  <a href="#" class="logo">Logo</a>
+  <button>Home</button>
+  <a href="#" class="button">News</a>
+  <span>|</span>
+  <button>About</button>
+  <button>Contact</button>
+</header>
+
+<footer>
+  <p>&copy; 2001-2016 Web Corporation | <a href="#">About</a> | <a href="#">Terms of use</a></p>
+</footer>
+
+<table>
+  <caption>People</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Alias</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Name">Chad</td>
+      <td data-label="Surname">Wilberts</td>
+      <td data-label="Alias">MrOne</td>
+    </tr>
+    <tr>
+      <td data-label="Name">Adam</td>
+      <td data-label="Surname">Smith</td>
+      <td data-label="Alias">TheSmith</td>
+    </tr>
+    <tr>
+      <td data-label="Name">Sophia</td>
+      <td data-label="Surname">Canderson</td>
+      <td data-label="Alias">Candee</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="preset">
+  <caption>Star Wars Character Alignment Table</caption>
+  <tbody>
+    <tr>
+      <th></th>
+      <th>Lawful</td>
+      <th>Neutral</td>
+      <th>Chaotic</td>
+    </tr>
+    <tr>
+      <th>Good</th>
+      <td>Yoda</td>
+      <td>Luke Skywalker</td>
+      <td>Chewbacca</td>
+    </tr>
+    <tr>
+      <th>Neutral</th>
+      <td>C-3PO</td>
+      <td>Boba Fett</td>
+      <td>Han Solo</td>
+    </tr>
+    <tr>
+      <th>Bad</th>
+      <td>Darth Vader</td>
+      <td>Emperor Palpatine</td>
+      <td>Jabba the Hutt</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="card">
+    <div class="section">
+      <h3>Card Title</h3>
+      <p>Card content...</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section">
+      <h3>Card Title</h3>
+      <p>Card content...</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="https://placehold.it/800x600" class="section media">
+  <div class="section double-padded"><p>Content</p></div>
+  <div class="section dark"><p>Content</p></div>
+</div>
+
+<div class="col-sm-12">
+  <div class="card fluid">
+    <div class="section">
+      <p>Content</p>
+    </div>
+  </div>
+</div>
+
+<mark>primary</mark>
+<mark class="secondary">secondary</mark>
+<mark class="tertiary">tertiary</mark>
+<mark class="inline-block">long highlight text...</mark>
+<mark class="tag">tag</mark>
+
+<progress value="0" max="1000"></progress>
+<progress value="450" max="1000"></progress>
+<progress value="1000" max="1000"></progress>
+
+<progress class="secondary" value="600" max="1000"></progress>
+<progress class="tertiary" value="300" max="1000"></progress>
+<progress class="inline" value="150" max="1000"></progress>
+
+<!--#include file="/footer.html"-->

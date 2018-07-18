@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+{% block content %}
+
+<h2>{{title|capfirst}} example.</h2>
+<h3>it is second variant of static pages but served with django.</h3>
+
+<p>The content of this page is located in `/djapp/templ/static_pages/index.html`</p>
+
+<p>This is configured in `urls.py` with the next rule :
+
+<pre>
+    urlpatterns = (
+    ...
+    path('a/', TemplateView.as_view(template_name='<b>static_pages/index.html</b>')),
+
+   
+
+</pre>
+
+</p>
+
+{% endblock %}
