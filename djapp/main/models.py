@@ -42,9 +42,9 @@ class Image(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.title = sub('[^\w ]+', '', self.title.strip())[:200]
+        # self.title = sub('[^\w ]+', '', self.title.strip())[:200]
         if not self.slug:
-            self.slug = orig = 'img-' + slugify(self.title)
+            self.slug = orig = 'img' + slugify(self.title[:180])
 
             # генерация уник slug
             for x in itertools.count(1):
