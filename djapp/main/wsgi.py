@@ -1,10 +1,6 @@
-# WSGI config for your project.
-# It exposes the WSGI callable as a module-level variable named ``application``.
-
-# For more information on this file, see
+# WSGI config
 # https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
-
-# this version is modded
+# модифицированная версия
 
 
 from os import environ

@@ -24,3 +24,8 @@ Django app is in `.\djapp\ folder.
 
 Django admin panel url will be `/a/admin/` by default.
 admin panel login and password is: `admin`:`admin`
+
+
+тестировано
+* python 3.6.6
+* django 2.0.7
