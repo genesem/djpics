@@ -20,7 +20,7 @@ srch.addEventListener('keypress', function(event) {
             var s = srch.value;
             if(s.length){
             console.log('go search for tags:'+s);
-            self.location.href = "/?tag="+s; }
+            self.location.href = "/?q="+s; }
             event.preventDefault();
         }
     });

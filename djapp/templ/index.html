@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Изображения</h2>
+<h2>{{title}}</h2>
 
 <div class="collapse">
 {% for msg in messages %}
@@ -18,11 +18,6 @@
 <section>
 <div class="row cols-md-3">
 
-
-{# load thumbnail #}
-
-{#% load static gives {{MEDIA_URL}} %#}
-
 {% for en in rows %}
 
 <figure>
@@ -34,7 +29,6 @@
     {# endthumbnail #}
 
     <figcaption>{{ en.title }}</figcaption>
-    <!-- <a href="{{ en.image.url }}" target="_blank">src</a> -->
 
 </figure>
 

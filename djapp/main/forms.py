@@ -20,9 +20,3 @@ class ImageEditForm(forms.ModelForm):
         widgets = {
             'url': forms.HiddenInput,
         }
-
-
-class ImageSearchForm(forms.ModelForm):
-    class Meta:
-        model = Image
-        fields = ('title', 'desc', 'shooted', 'tags')
