@@ -28,3 +28,10 @@ admin panel login and password is: `admin`:`admin`
 тестировано
 * python 3.6.6
 * django 2.0.7
+
+### установка и запуск:
+* git clone https://github.com/genesem/djpics
+* cd djpics
+* на windows: run.cmd
+* на Lin/mac: python3 manage.py runserver 8000
+
