@@ -11,7 +11,7 @@ media
 
 notes*.txt
 makefile
-migrate.*
+migrate.cmd
 
 *.exe
 *.test
