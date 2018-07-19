@@ -33,5 +33,5 @@ admin panel login and password is: `admin`:`admin`
 * git clone https://github.com/genesem/djpics
 * cd djpics
 * на windows: run.cmd
-* на Lin/mac: python3 manage.py runserver 8000
+* на Lin/mac: python3 manage.py runserver 8000 && python3 -mwebbrowser -t "http://localhost:8000"
 
