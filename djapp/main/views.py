@@ -1,28 +1,66 @@
 from django.template import loader
-from django.http import HttpResponse, Http404
-from .models import Page
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.contrib import messages
+from .models import Image
+from .forms import (ImageEditForm, ImageUploadForm)
 _lr = loader.render_to_string
 
 
 def index(req):
-    try:
-        pg = Page.objects.get(slug__exact='index')
-    except Page.DoesNotExist:
-        raise Http404('Page don\'t exists')
-    ctx = {
+    # try:
+    #     pg = Page.objects.get(slug__exact='index')
+    # except Page.DoesNotExist:
+    #     raise Http404('Page don\'t exists')
+    res = _lr('index.html', {
         'title': 'index title',
-        'pg': pg,
-    }
-    return HttpResponse(_lr('index.html', ctx, req))
+        'rows': Image.objects.filter(active=True).defer('active')[:200]
+    }, req)
+
+    return HttpResponse(res)
 
 
-def page(req):
+def img_add(req):
+    # добавление изображения
+    if req.method == 'POST':
+        form = ImageUploadForm(data=req.POST, files=req.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            messages.success(req, 'Новое изображение загружено')
+        else:
+            messages.error(req, 'Ошибка при загрузке')
+        return HttpResponseRedirect("/")
+    else:
+        ctx = {'title': 'загрузка нового изображения', 'form': ImageUploadForm()}
+        return HttpResponse(_lr('img_add.html', ctx, req))
+
+
+def img_view(req, slug):
+    # простотр редактировние описаний
     try:
-        pg = Page.objects.get(slug__exact='page')
-    except Page.DoesNotExist:
-        raise Http404('Page don\'t exists')
-    ctx = {
-        'title': 'page title',
-        'pg': pg,
-    }
-    return HttpResponse(_lr('page.html', ctx, req))
+        img = Image.objects.get(slug__exact=slug)
+    except Exception:
+        raise Http404('Don\'t exists')
+
+    if req.method == 'POST':
+        form = ImageEditForm(instance=img, data=req.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(req, 'описание обновлено')
+        else:
+            messages.error(req, 'Ошибка при обновлении')
+        return HttpResponseRedirect("/")
+    else:
+        ctx = {'title': 'изображение', 'form': ImageEditForm(instance=img), 'id': img.id}
+        return HttpResponse(_lr('img_view.html', ctx, req))
+
+
+def img_del(req, id):
+    # удаление изображения
+    try:
+        # удаление файла на диске можно добавть тут
+        Image.objects.filter(id=id).delete()
+        messages.success(req, 'изображение удалено')
+        return HttpResponseRedirect("/")
+    except Exception:
+        messages.error(req, 'Ошибка при удалении')

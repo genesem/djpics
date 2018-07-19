@@ -1,20 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from re import sub
-
-
-class Page(models.Model):
-    class Meta:
-        db_table = 't_page'
-
-    name = models.CharField(max_length=60, blank=True, db_index=True)
-    slug = models.CharField(max_length=60, blank=True, db_index=True)
-    updated = models.DateTimeField(auto_now=True, db_index=True)
-    text = models.TextField(default="Some text, just for example")
-
-    def __str__(self):
-        return self.name
 
 
 class Tag(models.Model):
@@ -37,12 +24,16 @@ class Tag(models.Model):
 
 
 class Image(models.Model):
+    class Meta:
+        db_table = 't_img'
+
+    active = models.BooleanField(default=True, db_index=True)
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, blank=True)
-    url = models.URLField()
+    slug = models.SlugField(max_length=200, blank=True, unique=True)
     image = models.ImageField(upload_to='images/%Y-%m/%d')
     desc = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True, db_index=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
         return self.title

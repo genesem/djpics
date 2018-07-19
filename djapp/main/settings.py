@@ -1,4 +1,6 @@
 
+from os import path
+
 STATIC_ROOT = '../www/static/'
 MEDIA_ROOT = '../www/media/'
 STATIC_URL = '/static/'
@@ -14,15 +16,12 @@ MEDIA_URL = '/media/'
 # i18n:
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-from os import path
 
 # путь к локальной базе только для примера
-# BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 dbpath = path.join(path.dirname(path.dirname(path.abspath(__file__))), 'db.sqlite3')
+SECRET_KEY = '(9us#tadfg2f4=g8sxybblc0l7r3t)-notasecret'
 
-SECRET_KEY = '(9us#tadfg2f4=g8sxybblc0l7r3t)'
-
-DEBUG = True # не для production!
+DEBUG = True  # не для production
 ALLOWED_HOSTS = []
 ROOT_URLCONF = 'main.urls'
 WSGI_APPLICATION = 'main.wsgi.app'
@@ -58,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # {{ MEDIA_URL }} in templates
             ],
         },
     },
@@ -67,7 +67,7 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': dbpath # path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': dbpath
     }
 }
 
@@ -75,12 +75,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#    },
-#    {
-#        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#    },
+   # {
+   #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+   # },
+   # {
+   #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+   # },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },

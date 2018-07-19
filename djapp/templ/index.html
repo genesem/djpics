@@ -1,14 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Page name: {{pg.name}}</h2>
+<h2>Изображения</h2>
+
+<div class="collapse">
+{% for msg in messages %}
+
+<span class="toast">
+{{ msg|safe }}<span class="button msgi">&times;</span>
+</span>
+
+{% endfor %}
+</div>
 <hr/>
 
-<p>Page text: {{pg.text}}</p>
 
+{# load thumbnail #}
 
-<p>Page slug: {{pg.slug}}</p>
+{#% load static gives {{MEDIA_URL}} %#}
 
-<p>index.html template</p>
+{% for en in rows %}
+
+<div class="image">
+
+    {# thumbnail image.image "300x300" crop="100%" as im #}
+    <a href="{% url "view" en.slug %}">
+        <img src="{{ en.image.url }}">
+    </a>
+    {# endthumbnail #}
+
+    <div class="info">
+     <a href="{{ en.image.url }}" class="title">{{ en.title }}</a>
+    </div>
+
+</div>
+
+{% empty %}
+
+Изображений нет. Добавьте.
+
+{% endfor %}
+
 
 {% endblock %}

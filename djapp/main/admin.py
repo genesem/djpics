@@ -1,15 +1,19 @@
-# admin reference
-# https://docs.djangoproject.com/en/2.0/ref/contrib/admin/
+
+from django.contrib.admin.sites import site
+from django.contrib.admin.options import ModelAdmin
+from .models import Image
 
 
-from django.contrib import admin
-from .models import Page
+# class PageAdmin(ModelAdmin):
+#     list_display = ('slug', 'updated')
+#     list_filter = ('updated',)
+#     prepopulated_fields = {'slug': ('name',)}
 
 
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    list_display = ('slug', 'updated')
-    list_filter = ('updated',)
-    prepopulated_fields = {'slug': ('name',)}
+class ImageAdmin(ModelAdmin):
+    list_display = ['title', 'slug', 'image', 'created']
+    list_filter = ['created']
 
 
+# site.register(Page, PageAdmin)
+site.register(Image, ImageAdmin)
