@@ -64,3 +64,25 @@ def img_del(req, id):
         return HttpResponseRedirect("/")
     except Exception:
         messages.error(req, 'Ошибка при удалении')
+
+
+def img_search(req):
+    # поиск по тегам
+    # try:
+    #     img = Image.objects.get(slug__exact=slug)
+    # except Exception:
+    #     raise Http404('Don\'t exists')
+
+    img = None
+
+    if req.method == 'POST':
+        form = ImageEditForm(instance=img, data=req.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(req, 'описание обновлено')
+        else:
+            messages.error(req, 'Ошибка при обновлении')
+        return HttpResponseRedirect("/")
+    else:
+        ctx = {'title': 'изображение', 'form': ImageEditForm(instance=img), 'id': img.id, 'iurl': img.image.url}
+        return HttpResponse(_lr('img_search.html', ctx, req))

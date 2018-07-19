@@ -1,7 +1,7 @@
 @echo off
 
 cd .\djapp
-echo Reset migrations..
+echo Reset database..
 rm -rf main/migrations/*
 rm db.sqlite3
 rm -rf www/media/*

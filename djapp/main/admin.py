@@ -1,13 +1,6 @@
-
 from django.contrib.admin.sites import site
 from django.contrib.admin.options import ModelAdmin
-from .models import Image
-
-
-# class PageAdmin(ModelAdmin):
-#     list_display = ('slug', 'updated')
-#     list_filter = ('updated',)
-#     prepopulated_fields = {'slug': ('name',)}
+from .models import Image, Tag
 
 
 class ImageAdmin(ModelAdmin):
@@ -15,5 +8,10 @@ class ImageAdmin(ModelAdmin):
     list_filter = ['created']
 
 
-# site.register(Page, PageAdmin)
+class TagAdmin(ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name', 'slug', 'slen')
+
+
 site.register(Image, ImageAdmin)
+site.register(Tag, TagAdmin)
