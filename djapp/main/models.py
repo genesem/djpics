@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from datetime import date
 from re import sub
 
 
@@ -33,6 +34,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='images/%Y-%m/%d')
     desc = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True, db_index=True)
+    shooted = models.DateField(default=date.today)
     tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):

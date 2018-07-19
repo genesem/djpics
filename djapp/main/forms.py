@@ -18,7 +18,7 @@ class ImageEditForm(forms.ModelForm):
     # image = forms.ImageField()
     class Meta:
         model = Image
-        fields = ('title', 'desc', 'tags')
+        fields = ('title', 'desc', 'shooted', 'tags')
         widgets = {
             'url': forms.HiddenInput,
         }

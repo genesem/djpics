@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Загрузка изображения</h2>
+<h2>Просмотр изображения / редактирование описания</h2>
 <hr/>
 
 
 <section>
-<form class="container"
-action="." method="post" enctype="multipart/form-data">
+
+<img src="{{iurl}}" width="400" />
+
+<form class="container" action="." method="post" enctype="multipart/form-data">
 {% csrf_token %}{{ form.non_field_errors }}
 
 

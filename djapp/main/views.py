@@ -51,7 +51,7 @@ def img_view(req, slug):
             messages.error(req, 'Ошибка при обновлении')
         return HttpResponseRedirect("/")
     else:
-        ctx = {'title': 'изображение', 'form': ImageEditForm(instance=img), 'id': img.id}
+        ctx = {'title': 'изображение', 'form': ImageEditForm(instance=img), 'id': img.id, 'iurl': img.image.url}
         return HttpResponse(_lr('img_view.html', ctx, req))
 
 
