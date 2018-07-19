@@ -9,12 +9,22 @@
 
 <header class="sticky row">
   <div class="col-sm col-md-10 col-md-offset-1">
-    <a href="/" role="button">Home</a>
-    <a href="/add/" role="button">Добавить</a>
-    <a href="/search/" role="button">Поиск</a>
-    <a href="/about/" role="button">О сайте</a>
+    <a href="/" class="logo">Home</a>
+    <a href="/add/" class="button">Добавить</a>
+    <a href="/search/" class="button">Поиск</a>
+    <a href="/about/" class="button">О сайте</a>
     <span role="button">|</span>    
-    <a href="/a/admin/" role="button" target="_blank">Django Admin</a>
+    <a href="/a/admin/" class="button" target="_blank">Django Admin</a>
+
+    <span role="button">|</span>    
+
+    <input type="text" id="search" placeholder="Search in tags"/>
+
+    <form id="sf"> 
+    <input type="submit" class="button" value="Загрузить"/>
+    </form>
+
+
   </div>
 </header>
 

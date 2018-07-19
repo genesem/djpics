@@ -5,9 +5,16 @@
 <hr/>
 
 
-<section>
 
-<img src="{{iurl}}" width="400" />
+<section>
+<div class="row cols-md-6">
+
+<div>
+ <img src="{{iurl}}" width="320" />
+</div>
+
+
+<div class="input-group fluid">
 
 <form class="container" action="." method="post" enctype="multipart/form-data">
 {% csrf_token %}{{ form.non_field_errors }}
@@ -19,9 +26,14 @@
 
 </form>
 
+</div>
+
+
+
 <h2>
  <a href="{% url "delete" id %}">удалить изображение</a>
 </h2>
 
+<div>
 </section>
 {% endblock %}

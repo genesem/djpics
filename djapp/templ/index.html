@@ -15,31 +15,39 @@
 <hr/>
 
 
+<section>
+<div class="row cols-md-3">
+
+
 {# load thumbnail #}
 
 {#% load static gives {{MEDIA_URL}} %#}
 
 {% for en in rows %}
 
-<div class="image">
+<figure>
 
     {# thumbnail image.image "300x300" crop="100%" as im #}
     <a href="{% url "view" en.slug %}">
-        <img src="{{ en.image.url }}" width="200"/>
+        <img src="{{ en.image.url }}" width="180" alt="{{en.slug}}"/>
     </a>
     {# endthumbnail #}
 
-    <div class="info">
-     <a href="{{ en.image.url }}" class="title">{{ en.title }}</a>
-    </div>
+    <figcaption>{{ en.title }}</figcaption>
+    <!-- <a href="{{ en.image.url }}" target="_blank">src</a> -->
 
-</div>
+</figure>
+
+
 
 {% empty %}
 
 Изображений нет. Добавьте.
 
 {% endfor %}
+
+</div>
+</section>
 
 
 {% endblock %}
