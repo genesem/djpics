@@ -4,7 +4,9 @@ from .models import Image, Tag
 
 
 class ImageAdmin(ModelAdmin):
-    list_display = ['title', 'slug', 'image', 'created']
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ['title', 'slug', 'image', 'created', 'shooted']
+    readonly_fields = ('created',)
     list_filter = ['created']
 
 
