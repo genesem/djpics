@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from datetime import date
+import itertools
 from re import sub
 
 
@@ -43,7 +44,14 @@ class Image(models.Model):
     def save(self, *args, **kwargs):
         self.title = sub('[^\w ]+', '', self.title.strip())[:200]
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = orig = slugify(self.title)
+
+            # генерация уник slug
+            for x in itertools.count(1):
+                if not Image.objects.filter(slug=self.slug).exists():
+                    break
+                self.slug = '%s-%d' % (orig, x)
+
         super(Image, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
